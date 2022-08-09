@@ -1,0 +1,345 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maths Typer</title>
+<style>
+  *
+  {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+  }
+  body{
+    font-family: style-font;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50%;
+    background: #153342;
+  }
+  body::before{
+    content: '.';
+    position: absolute;
+    stroke: black;
+    direction: ltr;
+    stroke-linecap: round ;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#df185e,#ffc107) ;
+    clip-path: circle(22% at 25% 20%);
+  }
+  body::after{
+    content: '.';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient( #e91e63,#ffc107 ) ;
+    clip-path : circle(20% at 75% 80%);
+  }
+  .container{
+    position: relative;
+    float:initial;
+    background: rgb(0, 0, 0);
+    border-radius: 8px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    width :fit-content ;
+    backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(225, 225,225, 0.02);
+    border-left: 1px solid rgba(225, 225,225, 0.02);
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 2);
+  
+  }
+  .container .calculator{
+    position: relative;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  .container .calculator .value {
+    grid-column: span 10;
+    justify-content: space-between;
+    height: 150px;
+    font-weight: 900;
+    width: 1000;
+    text-align: left;
+    border: 1px;
+    outline: none;
+    padding: 20px;
+    font-size: 24px;
+    background: rgb(216, 216, 216);
+    color: rgb(0, 0, 0);
+    border-bottom: 1px solid rgba(225, 225,225, 0.05);
+    border-right: 1px solid rgba(225, 225,225, 0.05);
+  }
+  .container .calculator span{
+    display: grid;
+    border-radius: 8px;
+    place-items: center;
+    align-items: center;
+    height:65px;
+    width: 77px;
+    color: #FFFF;
+    font-weight: 900;
+    cursor: pointer;
+    font-size: 15px;
+    user-select: none;
+    border-bottom: 1px solid rgba(225, 225,225, 0.05);
+    border-right: 1px solid rgba(225, 225,225, 0.05);
+    border-left: 1px solid rgba(225, 225,225, 0.05);
+    border-top: 1px solid rgba(225, 225,225, 0.05);
+    transition: 0.5s;
+  }
+  .container .calculator span:hover{
+    transition: 0s;
+    background: rgb(85, 77, 35);
+  }
+  .container .calculator span:active{
+    background: #ffffff;
+    color: #ffaa00;
+    font-size: 24px;
+    font-weight: 500;
+  }
+  .container .calculator .clear {
+    grid-column: span 10 ;
+    width: auto;
+  
+  }
+  .equal {
+    background:  rgba(225, 225,225, 0.01);
+    font-weight: 900;
+  }
+  .container .calculator .cat {
+    grid-column: span 10 ;
+    width: auto;
+  
+  }
+  @font-face{
+    font-family: style-font;
+    src: url('latin.otf') format('otf');
+  }
+</style></head>
+
+<body>
+  <div class="container">
+    <p style="color:aqua; cursor: pointer; text-align: center; font-size:x-large;"> Maths Typer </p> 
+    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;   <small style="color:aqua; cursor: pointer; justify-content: center; text-align: center; "> scroll down to type more </small>
+    <form name="calc" class="calculator">
+      <textarea class="value" title="Value" name="text"> </textarea>
+      <span class="num clear" onclick="calc.text.value=''" title="clear">c</span>
+      <span class="cat"> Basic Maths </span>
+      <span class="num" onclick="document.calc.text.value +='='" title="num-0">=</span>
+      <span class="num" onclick="document.calc.text.value +='≠'" title="Caret">≠</span>
+      <span class="num" onclick="document.calc.text.value +='≈'" title="Division">≈</span>
+      <span class="num" onclick="document.calc.text.value +='<'">&lt;</span>
+      <span class="num" onclick="document.calc.text.value +='>'" title="Open Brackets">&gt;</span>
+      <span class="num" onclick="document.calc.text.value +='≤'" title="Square Root">≤</span>
+      <span class="num" onclick="document.calc.text.value +='≥'" title="Closing Brackets">≥</span>
+      <span class="num" onclick="document.calc.text.value +='( )'" title="Square Root">( )</span>
+      <span class="num" onclick="document.calc.text.value +='[ ]'" title="Square Root">[ ]</span>
+      <span class="num" onclick="document.calc.text.value +='+'" title="Square Root">+</span>
+      <span class="num" onclick="document.calc.text.value +='−'" title="Square Root">−</span>
+      <span class="num" onclick="document.calc.text.value +='±'" title="Square Root">±</span>
+      <span class="num" onclick="document.calc.text.value +='±'" title="Square Root">±</span>
+      <span class="num" onclick="document.calc.text.value +='*'" title="Square Root">*</span>
+      <span class="num" onclick="document.calc.text.value +='×'" title="Square Root">×</span>
+      <span class="num" onclick="document.calc.text.value +='⋅'" title="Square Root">⋅</span>
+      <span class="num" onclick="document.calc.text.value +='x²'" title="Square Root">x²</span>
+      <span class="num" onclick="document.calc.text.value +='÷'" title="Square Root">÷</span>
+      <span class="num" onclick="document.calc.text.value +='/'" title="Square Root">/</span>
+      <span class="num" onclick="document.calc.text.value +='—'" title="Square Root">—</span>
+      <span class="num" onclick="document.calc.text.value +='mod'" title="Square Root">mod</span>
+      <span class="num" onclick="document.calc.text.value +='.'" title="Square Root">.</span>
+      <span class="num" onclick="document.calc.text.value +='^'" title="Square Root">^</span>
+      <span class="num" onclick="document.calc.text.value +='√a'" title="Square Root">√a</span>
+      <span class="num" onclick="document.calc.text.value +='³√a'" title="Square Root">³√a</span>
+      <span class="num" onclick="document.calc.text.value +='⁴√a'" title="Square Root">⁴√a</span>
+      <span class="num" onclick="document.calc.text.value +='ⁿ√a'" title="Square Root">ⁿ√a</span>
+      <span class="num" onclick="document.calc.text.value +='%'" title="Square Root">%</span>
+      <span class="num" onclick="document.calc.text.value +='‰'" title="Square Root">‰</span>
+      <span class="num" onclick="document.calc.text.value +='ppm'" title="Square Root">ppm</span>
+      <span class="num" onclick="document.calc.text.value +='ppb'" title="Square Root">ppb</span>
+      <span class="num" onclick="document.calc.text.value +='ppt'" title="Square Root">ppt</span>
+      <span class="cat"> Power Numbers </span> 
+      <span class="num" onclick="document.calc.text.value +='¹'" title="Square Root">¹</span>
+      <span class="num" onclick="document.calc.text.value +='²'" title="Square Root">²</span>
+            <span class="num" onclick="document.calc.text.value +='³'" title="Square Root">³</span>
+      <span class="num" onclick="document.calc.text.value +='⁴'" title="Square Root">⁴</span>
+      <span class="num" onclick="document.calc.text.value +='⁵'" title="Square Root">⁵</span>
+      <span class="num" onclick="document.calc.text.value +='⁶'" title="Square Root">⁶</span>
+      <span class="num" onclick="document.calc.text.value +='⁷'" title="Square Root">⁷</span>
+      <span class="num" onclick="document.calc.text.value +='⁸'" title="Square Root">⁸</span>
+      <span class="num" onclick="document.calc.text.value +='⁹'" title="Square Root">⁹</span>
+      <span class="num" onclick="document.calc.text.value +='⁰'" title="Square Root">⁰</span>
+      <span class="cat"> down Numbers </span> 
+      <span class="num" onclick="document.calc.text.value +='₁'" title="Square Root">₁</span>
+            <span class="num" onclick="document.calc.text.value +='₂'" title="Square Root">₂</span>
+      <span class="num" onclick="document.calc.text.value +='₃'" title="Square Root">₃</span>
+      <span class="num" onclick="document.calc.text.value +='₄'" title="Square Root">₄</span>
+      <span class="num" onclick="document.calc.text.value +='₅'" title="Square Root">₅</span>
+      <span class="num" onclick="document.calc.text.value +='₆'" title="Square Root">₆</span>
+      <span class="num" onclick="document.calc.text.value +='₇'" title="Square Root">₇</span>
+      <span class="num" onclick="document.calc.text.value +='₈'" title="Square Root">₈</span>
+      <span class="num" onclick="document.calc.text.value +='₉'" title="Square Root">₉</span>
+      <span class="num" onclick="document.calc.text.value +='₀'" title="Square Root">₀</span>
+      <span class="cat"> Power Operators </span> 
+      <span class="num" onclick="document.calc.text.value +='⁺'" title="Square Root">⁺</span>
+            <span class="num" onclick="document.calc.text.value +='⁻'" title="Square Root">⁻</span>
+      <span class="num" onclick="document.calc.text.value +='⁼'" title="Square Root">⁼</span>
+      <span class="num" onclick="document.calc.text.value +='⁽'" title="Square Root">⁽</span>
+      <span class="num" onclick="document.calc.text.value +='⁾'" title="Square Root">⁾</span>
+      <span class="num" onclick="document.calc.text.value +='ⁿ'" title="Square Root">ⁿ</span>
+      <span class="cat"> Geomentry Symbols </span> 
+      <span class="num" onclick="document.calc.text.value +='∠'" title="Square Root">∠</span>
+      <span class="num" onclick="document.calc.text.value +='∡'" title="Square Root">∡</span>
+      <span class="num" onclick="document.calc.text.value +='∢'" title="Square Root">∢</span>
+      <span class="num" onclick="document.calc.text.value +='∟'" title="Square Root">∟</span>
+      <span class="num" onclick="document.calc.text.value +='°'" title="Square Root">°</span>
+      <span class="num" onclick="document.calc.text.value +='deg'" title="Square Root">deg</span>
+      <span class="num" onclick="document.calc.text.value +='′'" title="Square Root">′</span>
+      <span class="num" onclick="document.calc.text.value +='″'" title="Square Root">″</span>
+      <span class="num" onclick="document.calc.text.value +='↔'" title="Square Root">↔</span>
+      <span class="num" onclick="document.calc.text.value +='→'" title="Square Root">→</span>
+      <span class="num" onclick="document.calc.text.value +='⌒'" title="Square Root">⌒</span>
+      <span class="num" onclick="document.calc.text.value +='⊥'" title="Square Root">⊥</span>
+      <span class="num" onclick="document.calc.text.value +='∥'" title="Square Root">∥</span>
+      <span class="num" onclick="document.calc.text.value +='≅'" title="Square Root">≅</span>
+      <span class="num" onclick="document.calc.text.value +='~'" title="Square Root">~</span>
+      <span class="num" onclick="document.calc.text.value +='Δ'" title="Square Root">Δ</span>
+      <span class="num" onclick="document.calc.text.value +='|x-y|'" title="Square Root">|x-y|</span>
+      <span class="num" onclick="document.calc.text.value +='π'" title="Square Root">π</span>
+      <span class="num" onclick="document.calc.text.value +='rad'" title="Square Root">rad</span>
+      <span class="num" onclick="document.calc.text.value +='ᶜ'" title="Square Root">ᶜ</span>
+      <span class="num" onclick="document.calc.text.value +='grad'" title="Square Root">grad</span>
+      <span class="num" onclick="document.calc.text.value +='g'" title="Square Root">g</span>
+      <span class="cat"> Algebra Symbols </span>
+      <span class="num" onclick="document.calc.text.value +='𝑥'" title="Square Root">𝑥</span>
+      <span class="num" onclick="document.calc.text.value +='≡'" title="Square Root">≡</span>
+      <span class="num" onclick="document.calc.text.value +='≜'" title="Square Root">≜</span>
+      <span class="num" onclick="document.calc.text.value +=':='" title="Square Root">:=</span>
+      <span class="num" onclick="document.calc.text.value +='~'" title="Square Root">~</span>
+      <span class="num" onclick="document.calc.text.value +='≈'" title="Square Root">≈</span>
+      <span class="num" onclick="document.calc.text.value +='∝'" title="Square Root">∝</span>
+      <span class="num" onclick="document.calc.text.value +='∞'" title="Square Root">∞</span>
+      <span class="num" onclick="document.calc.text.value +='≪'" title="Square Root">≪</span>
+      <span class="num" onclick="document.calc.text.value +='≫'" title="Square Root">≫</span>
+      <span class="num" onclick="document.calc.text.value +='( )'" title="Square Root">( )</span>
+      <span class="num" onclick="document.calc.text.value +='[ ]'" title="Square Root">[ ]</span>
+      <span class="num" onclick="document.calc.text.value +='{ }'" title="Square Root">{ }</span>
+      <span class="num" onclick="document.calc.text.value +='⌊𝑥⌋'" title="Square Root">⌊x⌋</span>
+      <span class="num" onclick="document.calc.text.value +='⌈𝑥⌉'" title="Square Root">⌈x⌉</span>
+      <span class="num" onclick="document.calc.text.value +='𝑥!'" title="Square Root">𝑥!</span>
+      <span class="num" onclick="document.calc.text.value +='| 𝑥 |'" title="Square Root">| x |</span>
+      <span class="num" onclick="document.calc.text.value +='ƒ(𝑥)'" title="Square Root">ƒ(𝑥)</span>
+      <span class="num" onclick="document.calc.text.value +='(ƒ∘ g)'" title="Square Root">(ƒ∘ g)</span>
+      <span class="num" onclick="document.calc.text.value +='(a,b)'" title="Square Root">(a,b)</span>
+      <span class="num" onclick="document.calc.text.value +='[a,b]'" title="Square Root">[a,b]</span>
+      <span class="num" onclick="document.calc.text.value +='∆'" title="Square Root">∆</span>
+      <span class="num" onclick="document.calc.text.value +='∆'" title="Square Root">∆</span>
+      <span class="num" onclick="document.calc.text.value +='∑'" title="Square Root">∑</span>
+      <span class="num" onclick="document.calc.text.value +='∏'" title="Square Root">∏</span>
+      <span class="num" onclick="document.calc.text.value +='𝓮'" title="Square Root">𝓮</span>
+      <span class="num" onclick="document.calc.text.value +='γ'" title="Square Root">γ</span>
+      <span class="num" onclick="document.calc.text.value +='φ'" title="Square Root">φ</span>
+      <span class="num" onclick="document.calc.text.value +='π'" title="Square Root">π</span>
+      <span class="cat"> Linear Algebra Symbols </span>
+      <span class="num" onclick="document.calc.text.value +='·'" title="Square Root">·</span>
+      <span class="num" onclick="document.calc.text.value +='×'" title="Square Root">×</span>
+      <span class="num" onclick="document.calc.text.value +='A⊗B'" title="Square Root">A⊗B</span>
+      <span class="num" onclick="document.calc.text.value +='<𝑥,y>'" title="Square Root">&lt;𝑥,y&gt;</span>
+      <span class="num" onclick="document.calc.text.value +='[ ]'" title="Square Root">[ ]</span>
+      <span class="num" onclick="document.calc.text.value +='( )'" title="Square Root">( )</span>
+      <span class="num" onclick="document.calc.text.value +='( )'" title="Square Root">( )</span>
+      <span class="num" onclick="document.calc.text.value +='| A |'" title="Square Root">| A |</span>
+      <span class="num" onclick="document.calc.text.value +='det(A)'" title="Square Root">det(A)</span>
+      <span class="num" onclick="document.calc.text.value +='|| x ||'" title="Square Root">|| x ||</span>
+      <span class="num" onclick="document.calc.text.value +='𝑨ᵀ'" title="Square Root">𝑨ᵀ</span>
+      <span class="num" onclick="document.calc.text.value +='𝑨*'" title="Square Root">𝑨*</span>
+
+      <span class="num" onclick="document.calc.text.value +='rank(A)'" title="Square Root">rank(A)</span>
+      <span class="num" onclick="document.calc.text.value +='dim(U)'" title="Square Root">dim(U)</span>
+      <span class="cat"> Probability and statistics symbols </span>
+      <span class="num" onclick="document.calc.text.value +='P(A)'" title="Square Root">P(A)</span>
+      <span class="num" onclick="document.calc.text.value +='P(A ⋂ B)'" title="Square Root">P(A ⋂ B)</span>
+      <span class="num" onclick="document.calc.text.value +='P(A ⋃ B)'" title="Square Root">P(A ⋃ B)</span>
+      <span class="num" onclick="document.calc.text.value +='P(A | B)'" title="Square Root">P(A | B)</span>
+      <span class="num" onclick="document.calc.text.value +='𝑓(𝑥)'" title="Square Root">𝑓(𝑥)</span>
+      <span class="num" onclick="document.calc.text.value +='F(𝑥)'" title="Square Root">F(𝑥)</span>
+      <span class="num" onclick="document.calc.text.value +='𝑢'" title="Square Root">𝑢</span>
+      <span class="num" onclick="document.calc.text.value +='E(X)'" title="Square Root">E(X)</span>
+      <span class="num" onclick="document.calc.text.value +='E(X | Y)'" title="Square Root">E(X | Y)</span>
+      <span class="num" onclick="document.calc.text.value +='𝑣𝑎𝑟(X)'" title="Square Root">𝑣𝑎𝑟(X)</span>
+      <span class="num" onclick="document.calc.text.value +='σ²'" title="Square Root">σ²</span>
+      <span class="num" onclick="document.calc.text.value +='x̄'" title="Square Root">x̄</span>
+      <span class="num" onclick="document.calc.text.value +='𝑐𝑜𝑛v(X,Y)'" title="Square Root">𝑐𝑜𝑛v(X,Y)</span>
+      <span class="num" onclick="document.calc.text.value +='𝑐𝑜𝑟𝑟(X,Y)'" title="Square Root">𝑐𝑜𝑟𝑟(X,Y)</span>
+      <span class="num" onclick="document.calc.text.value +='𝑝𝑥,𝑦'" title="Square Root">𝑝𝑥,𝑦</span>
+      <span class="num" onclick="document.calc.text.value +='∑'" title="Square Root">∑</span>
+      <span class="num" onclick="document.calc.text.value +='∑∑'" title="Square Root">∑∑</span>
+      <span class="num" onclick="document.calc.text.value +='M𝑜'" title="Square Root">M𝑜</span>
+      <span class="num" onclick="document.calc.text.value +='MR'" title="Square Root">MR</span>
+      <span class="num" onclick="document.calc.text.value +='M𝑑'" title="Square Root">M𝑑</span>
+      <span class="num" onclick="document.calc.text.value +='Q₁'" title="Square Root">Q₁</span>
+      <span class="num" onclick="document.calc.text.value +='Q₂'" title="Square Root">Q₂</span>
+      <span class="num" onclick="document.calc.text.value +='Q₃'" title="Square Root">Q₃</span>
+      <span class="num" onclick="document.calc.text.value +='x̄'" title="Square Root">x̄</span>
+      <span class="num" onclick="document.calc.text.value +='𝑠²'" title="Square Root">𝑠²</span>
+      <span class="num" onclick="document.calc.text.value +='𝑠'" title="Square Root">𝑠</span>
+      <span class="num" onclick="document.calc.text.value +='𝑧ₓ'" title="Square Root">𝑧ₓ</span>
+      <span class="num" onclick="document.calc.text.value +='X ~'" title="Square Root">X ~</span>      
+      <span class="num" onclick="document.calc.text.value +='N(μ,σ2)'" title="Square Root">N(μ,σ2)</span>
+      <span class="num" onclick="document.calc.text.value +='U(a,b)'" title="Square Root">U(a,b)</span>
+      <span class="num" onclick="document.calc.text.value +='𝑒𝑥𝑝(λ)'" title="Square Root">𝑒𝑥𝑝(λ)</span>
+      <span class="num" onclick="document.calc.text.value +='𝑔𝑎𝑚𝑚𝑎(𝑐,λ)'" title="Square Root">𝑔𝑎𝑚𝑚𝑎(𝑐,λ)</span>
+      <span class="num" onclick="document.calc.text.value +='𝑥²(𝑘)'" title="Square Root">𝑥²(𝑘)</span>
+      <span class="num" onclick="document.calc.text.value +='𝑭(𝑘₁,𝑘₂'" title="Square Root">𝑭(𝑘₁,𝑘₂</span>
+      <span class="num" onclick="document.calc.text.value +='𝑩𝑖𝑛(𝑛,𝑝)'" title="Square Root">𝑩𝑖𝑛(𝑛,𝑝)</span>
+      <span class="num" onclick="document.calc.text.value +='𝑝𝑜𝑖𝑠𝑠𝑜𝑛(λ)'" title="Square Root">𝑝𝑜𝑖𝑠𝑠𝑜𝑛(λ)</span>
+      <span class="num" onclick="document.calc.text.value +='𝑔𝑒𝑜𝑚(𝑝)'" title="Square Root">𝑔𝑒𝑜𝑚(𝑝)</span>
+      <span class="num" onclick="document.calc.text.value +='𝑯𝑮(𝑵,𝑲,𝑛)'" title="Square Root">𝑯𝑮(𝑵,𝑲,𝑛)</span>
+      <span class="cat"> Combinatorics Symbols </span>
+      <span class="num" onclick="document.calc.text.value +='𝑛!'" title="Square Root">𝑛!</span>
+      <span class="num" onclick="document.calc.text.value +='𝑛ᴾ𝑘'" title="Square Root">𝑛ᴾ𝑘</span>
+      <span class="num" onclick="document.calc.text.value +='𝑛ᶜ𝑘'" title="Square Root">𝑛ᶜ𝑘</span>
+      <span class="cat"> Set theory symbols </span>
+      <span class="num" onclick="document.calc.text.value +='{}'" title="Square Root">{}</span>
+      <span class="num" onclick="document.calc.text.value +='A ∩ B'" title="Square Root">A ∩ B</span>
+      <span class="num" onclick="document.calc.text.value +='A ∪ B'" title="Square Root">A ∪ B</span>
+      <span class="num" onclick="document.calc.text.value +='A ⊆ B	'" title="Square Root">A ⊆ B	</span>
+      <span class="num" onclick="document.calc.text.value +='A ⊂ B'" title="Square Root">A ⊂ B</span>
+      <span class="num" onclick="document.calc.text.value +='A ⊄ B'" title="Square Root">A ⊄ B</span>
+      <span class="num" onclick="document.calc.text.value +='A ⊇ B'" title="Square Root">A ⊇ B</span>
+      <span class="num" onclick="document.calc.text.value +='A ⊃ B'" title="Square Root">A ⊃ B</span>
+      <span class="num" onclick="document.calc.text.value +='A ⊅ B'" title="Square Root">A ⊅ B</span>
+      <span class="num" onclick="document.calc.text.value +='2ᴬ'" title="Square Root">2ᴬ</span>
+      <span class="num" onclick="document.calc.text.value +='𝒫(𝑨)'" title="Square Root">𝒫(𝑨)</span>
+      <span class="num" onclick="document.calc.text.value +='A = B'" title="Square Root">A = B</span>
+      <span class="num" onclick="document.calc.text.value +='𝑨ᶜ'" title="Square Root">𝑨ᶜ</span>
+      <span class="num" onclick="document.calc.text.value +='𝑨\𝑩'" title="Square Root">𝑨\𝑩</span>
+      <span class="num" onclick="document.calc.text.value +='𝑨-𝑩'" title="Square Root">𝑨-𝑩</span>
+      <span class="num" onclick="document.calc.text.value +='A ∆ B'" title="Square Root">A ∆ B</span>
+      <span class="num" onclick="document.calc.text.value +='𝑎∈𝑨'" title="Square Root">𝑎∈𝑨</span>
+      <span class="num" onclick="document.calc.text.value +='𝑥∉𝑨'" title="Square Root">𝑥∉𝑨</span>
+      <span class="num" onclick="document.calc.text.value +='(𝑎,𝑏)'" title="Square Root">(𝑎,𝑏)</span>
+      <span class="num" onclick="document.calc.text.value +='A×B'" title="Square Root">A×B</span>
+      <span class="num" onclick="document.calc.text.value +='|A|'" title="Square Root">|A|</span>
+      <span class="num" onclick="document.calc.text.value +='#A'" title="Square Root">#A</span>
+      <span class="num" onclick="document.calc.text.value +='|'" title="Square Root">\</span>
+      <span class="num" onclick="document.calc.text.value +='𝔑₀'" title="Square Root">𝔑₀</span>
+      <span class="num" onclick="document.calc.text.value +='𝔑₁'" title="Square Root">𝔑₁</span>
+      <span class="num" onclick="document.calc.text.value +='Ø'" title="Square Root">Ø</span>
+      <span class="num" onclick="document.calc.text.value +='𝕌'" title="Square Root">𝕌</span>
+
+
+      
+    </form>
+  </div>
+
+</body></html>
